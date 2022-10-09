@@ -1,8 +1,5 @@
-/**
- * Copyright (c) 2022 Raspberry Pi (Trading) Ltd.
- *
- * SPDX-License-Identifier: BSD-3-Clause
- */
+// Copyright (c) 2020-2022 Cesanta Software Limited
+// All rights reserved
 
 #include "pico/cyw43_arch.h"
 #include "pico/stdlib.h"
@@ -17,12 +14,6 @@
 #include "lwip/pbuf.h"
 #include "lwip/tcp.h"
 
-#ifndef PING_ADDR
-#define PING_ADDR "142.251.35.196"
-#endif
-#ifndef RUN_FREERTOS_ON_CORE
-#define RUN_FREERTOS_ON_CORE 0
-#endif
 
 #define TEST_TASK_PRIORITY				( tskIDLE_PRIORITY + 1UL )
 
