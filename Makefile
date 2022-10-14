@@ -72,4 +72,4 @@ obj/%.o: %.S
 	@arm-none-eabi-gcc $(ASM_FLAGS) $(INCLUDES) $(DEFINES) $(WIFI) -x assembler-with-cpp -c $< -o $@
 
 clean:
-	@rm -rf obj firmware.elf firmware.uf2
+	$(DOCKER) rm -rf obj firmware.elf firmware.uf2
