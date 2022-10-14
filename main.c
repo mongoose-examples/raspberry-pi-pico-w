@@ -8,7 +8,6 @@
 
 #include "FreeRTOS.h"
 #include "task.h"
-#include "ping.h"
 #include "mongoose.h"
 
 #include "lwip/pbuf.h"
@@ -40,7 +39,7 @@ void main_task(__unused void *params) {
     mg_http_listen(&mgr, s_listening_address, device_dashboard_fn, &mgr); // Web listener
 
     while(true) {
-        mg_mgr_poll(&mgr, 1000);
+        mg_mgr_poll(&mgr, 10);
     }
 
     cyw43_arch_deinit();

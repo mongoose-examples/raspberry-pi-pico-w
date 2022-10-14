@@ -17,6 +17,7 @@
 #define MEM_SIZE                    10000
 #define MEMP_NUM_TCP_SEG            32
 #define MEMP_NUM_ARP_QUEUE          10
+#define MEMP_NUM_NETCONN            10
 #define PBUF_POOL_SIZE              24
 #define LWIP_ARP                    1
 #define LWIP_ETHERNET               1
@@ -29,7 +30,6 @@
 #define LWIP_NETIF_STATUS_CALLBACK  1
 #define LWIP_NETIF_LINK_CALLBACK    1
 #define LWIP_NETIF_HOSTNAME         1
-#define LWIP_NETCONN                0
 #define MEM_STATS                   0
 #define SYS_STATS                   0
 #define MEMP_STATS                  0
@@ -94,9 +94,6 @@
 #define DEFAULT_TCP_RECVMBOX_SIZE TCPIP_MBOX_SIZE
 #define DEFAULT_ACCEPTMBOX_SIZE TCPIP_MBOX_SIZE
 
-#define DEFAULT_UDP_RECVMBOX_SIZE TCPIP_MBOX_SIZE
-#define DEFAULT_TCP_RECVMBOX_SIZE TCPIP_MBOX_SIZE
-#define DEFAULT_ACCEPTMBOX_SIZE TCPIP_MBOX_SIZE
 // not necessary, can be done either way
 #define LWIP_TCPIP_CORE_LOCKING_INPUT 1
 #endif
