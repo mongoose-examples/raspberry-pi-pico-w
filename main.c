@@ -10,11 +10,9 @@
 #include "task.h"
 #include "mongoose.h"
 
-#include "lwip/pbuf.h"
-#include "lwip/tcp.h"
-
 
 #define TEST_TASK_PRIORITY				( tskIDLE_PRIORITY + 1UL )
+#define TEST_TASK_STACK_SIZE			(( configSTACK_DEPTH_TYPE ) 2048)
 
 void device_dashboard_fn(struct mg_connection *, int, void *, void *);
 
@@ -47,7 +45,7 @@ void main_task(__unused void *params) {
 
 void vLaunch( void) {
     TaskHandle_t task;
-    xTaskCreate(main_task, "TestMainThread", configMINIMAL_STACK_SIZE, NULL, TEST_TASK_PRIORITY, &task);
+    xTaskCreate(main_task, "TestMainThread", TEST_TASK_STACK_SIZE, NULL, TEST_TASK_PRIORITY, &task);
     vTaskStartScheduler();
 }
 
