@@ -9,15 +9,13 @@
 #include "FreeRTOS.h"
 #include "task.h"
 #include "mongoose.h"
+#include "net.h"
 
 
 #define TEST_TASK_PRIORITY				( tskIDLE_PRIORITY + 1UL )
 #define TEST_TASK_STACK_SIZE			(( configSTACK_DEPTH_TYPE ) 2048)
 
-void device_dashboard_fn(struct mg_connection *, int, void *, void *);
-
 static struct mg_mgr mgr;
-static const char *s_listening_address = "http://0.0.0.0:80";
 
 void main_task(__unused void *params) {
     if (cyw43_arch_init()) {
@@ -34,7 +32,7 @@ void main_task(__unused void *params) {
     }
 
     mg_mgr_init(&mgr);
-    mg_http_listen(&mgr, s_listening_address, device_dashboard_fn, &mgr); // Web listener
+    web_init(&mgr);
 
     while(true) {
         mg_mgr_poll(&mgr, 10);
